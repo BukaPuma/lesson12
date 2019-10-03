@@ -3,9 +3,11 @@ import service from '../service'
 import adminTable from '../Table'
 
 const patternEmail:RegExp = /[A-z]+\@[A-z]+\.[A-z]{2,5}/
+const patternPhone:RegExp = /^\+?7[0-9]{10}$/
 
 export default class AddForm{
     private isCorrectlyEmail:boolean = false
+    private isCorrectlyPhone:boolean = false
     private isCorrectlyAge:boolean = false
     private isReadyName:boolean = false
     private isReadySurname:boolean = false
@@ -15,7 +17,9 @@ export default class AddForm{
         this.checkAge()
         this.checkName()
         this.checkSurname()
+        this.checkPhone()
         this.addUser()
+        
     }
 
     checkEmail(){
@@ -23,6 +27,14 @@ export default class AddForm{
             const target:HTMLInputElement = e.currentTarget as HTMLInputElement 
             this.isCorrectlyEmail = patternEmail.test(target.value)
             target.style.borderColor = this.isCorrectlyEmail ? 'initial' : 'red'
+        })
+    }
+
+    checkPhone(){
+        constants.inputPhone.addEventListener('input', (e) =>{
+            const target:HTMLInputElement = e.currentTarget as HTMLInputElement 
+            this.isCorrectlyPhone = patternPhone.test(target.value)
+            target.style.borderColor = this.isCorrectlyPhone ? 'initial' : 'red'
         })
     }
 
@@ -51,13 +63,15 @@ export default class AddForm{
         }) 
     }
 
+
+
     addUser(){
         constants.btnAdd.addEventListener('click', (e) => {
             e.preventDefault()
 
             if(this.isCorrectlyEmail && this.isCorrectlyAge &&
                 this.isReadyName && this.isReadySurname){
-                    const email:string = constants.inputAge.value
+                    const email:string = constants.inputEmail.value
                     const name:string = constants.inputName.value
                     const surname:string = constants.inputSurname.value
                     const age:number = parseInt(constants.inputAge.value)

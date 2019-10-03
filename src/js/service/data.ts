@@ -8,7 +8,8 @@ export interface IUser {
     hobby?: string
 }
 
-export const data:IUser[] = [
+export const data:IUser[] = []
+/* [
     {
         name: "Harry",
         surname: "Potter",
@@ -56,4 +57,4 @@ export const data:IUser[] = [
         work: "лес",
         hobby: "мёд"
     }
-]
+] */

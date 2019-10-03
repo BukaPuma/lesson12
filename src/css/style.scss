@@ -1,0 +1,64 @@
+body{   
+    padding: 40px; 
+    .admin{
+
+        padding: 30px;
+        width : 700px;
+        &__table {
+            padding: 20px;           
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;            
+            border: 2px solid black;
+            height: 300px;
+            overflow: auto;
+            .user_row {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                border: 1px solid grey;
+                padding: 0px 10px;
+                font-size: 14px;
+                font-style: bold;
+                span {
+                    font-size: 14px;
+                    font-style: bold;
+                  
+                }
+            }
+
+
+        }
+        &__form  {
+            display: flex;
+            flex-direction: column;            
+            border: 2px solid black;
+            
+                form {
+                    padding: 20px;
+                    
+                    div { 
+                        
+                        height: 30px; 
+                        input {
+                            width: 400px;
+                            border: 2px solid black;
+                            font-size: 16px;
+                            padding-left: 10px;
+
+                    }
+                    
+                }
+            }
+        }
+
+
+
+
+
+    }
+
+
+
+
+}

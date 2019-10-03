@@ -17,7 +17,17 @@ class AdminTable{
     }
 
     renderUsers(users:IUser[]){
-        C.tabel.innerHTML = ''
+        C.tabel.innerHTML = `
+        <div class="user_row">
+            <span>Фамилия</span>
+            <span>Имя</span>
+            <span>Возраст</span>
+            <span>Почта</span>
+            <span>Телефон</span>
+            <span>Работа</span>
+            <span>Хобби</span>
+        </div>           
+        `
 
         users.map((user:IUser) => {
             C.tabel.innerHTML += this.userRow(user)
